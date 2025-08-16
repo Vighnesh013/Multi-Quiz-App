@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="ISO-8859-1" />
+  <link rel="stylesheet" href="Style.css" />
+  <title>Admin Dashboard</title>
+  <style>
+    
+    .category-form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      padding: 30px 40px;
+      max-width: 1200px;
+      margin: 40px auto;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      font-family: 'Inter', sans-serif;
+      color: #2c3e50;
+    }
+
+   
+    .category-form > h2 {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: #354535;
+      margin-bottom: 20px;
+    }
+
+   
+    .welcome-msg {
+      grid-column: 1 / -1;
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    section {
+      background-color: #f9faf9;
+      padding: 20px 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    section h3 {
+      margin-bottom: 15px;
+      color: #4a633d;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #2c3e50;
+    }
+
+    select,
+    input[type="text"],
+    input[type="number"] {
+      padding: 10px 12px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      border-radius: 8px;
+      border: 1.5px solid #ced4cd;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    select:focus,
+    input[type="text"]:focus,
+    input[type="number"]:focus {
+      outline: none;
+      border-color: #6B8E23;
+      box-shadow: 0 0 0 3px rgba(107, 142, 35, 0.15);
+    }
+
+    input[type="submit"] {
+      background-color: #6B8E23;
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #556B2F;
+    }
+
+   
+    .btn-logout {
+      background-color: #c0392b;
+    }
+
+    .btn-logout:hover {
+      background-color: #922b21;
+    }
+
+   
+    .footer-link {
+      grid-column: 1 / -1;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .footer-link a {
+      color: #6B8E23;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .footer-link a:hover {
+      color: #445f1a;
+    }
+
+    
+    @media (max-width: 640px) {
+      .category-form {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        margin: 20px;
+      }
+
+      section {
+        padding: 15px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="category-form">
+    <h2>Admin Dashboard</h2>
+    <p class="welcome-msg">Welcome, Admin!</p>
+
+    <section>
+      <h3>View Results and Leaderboard</h3>
+      <form action="CategoryServlet" method="get">
+        <label for="view_category">Select a Category:</label>
+        <select name="category_id" id="view_category" required>
+          <option value="1">Science</option>
+          <option value="2">Aptitude</option>
+          <option value="3">Mathematics</option>
+          <option value="4">Biology</option>
+        </select>
+        <input type="submit" value="View Results" class="btn" />
+      </form>
+    </section>
+
+    <section>
+      <h3>View/Delete Questions</h3>
+      <form action="QuestionServlet" method="get">
+        <label for="view_questions_category">Select a Category:</label>
+        <select name="category_id" id="view_questions_category" required>
+          <option value="1">Science</option>
+          <option value="2">Aptitude</option>
+          <option value="3">Mathematics</option>
+          <option value="4">Biology</option>
+        </select>
+        <input type="submit" value="View Questions" class="btn" />
+      </form>
+    </section>
+
+    <section>
+      <h3>Add New Question</h3>
+      <form action="QuestionServlet" method="post">
+        <input type="hidden" name="action" value="add" />
+        <label for="question_category">Select Category:</label>
+        <select name="category_id" id="question_category" required>
+          <option value="1">Science</option>
+          <option value="2">Aptitude</option>
+          <option value="3">Mathematics</option>
+          <option value="4">Biology</option>
+        </select>
+
+        <label for="question_text">Question Text:</label>
+        <input type="text" name="question_text" id="question_text" required />
+
+        <label for="option_a">Option A:</label>
+        <input type="text" name="option_a" id="option_a" required />
+
+        <label for="option_b">Option B:</label>
+        <input type="text" name="option_b" id="option_b" required />
+
+        <label for="option_c">Option C:</label>
+        <input type="text" name="option_c" id="option_c" required />
+
+        <label for="option_d">Option D:</label>
+        <input type="text" name="option_d" id="option_d" required />
+
+        <label for="correct_option">Correct Option (A/B/C/D):</label>
+        <input type="text" name="correct_option" id="correct_option" pattern="[ABCDabcd]" required />
+
+        <input type="submit" value="Add Question" class="btn" />
+      </form>
+    </section>
+
+    
+
+    <p class="footer-link">
+      <a href="AdminLogin.html">Go Back To Login Page</a>
+    </p>
+  </div>
+</body>
+</html>

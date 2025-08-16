@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Select Category</title>
+    <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+  <form class="category-form" action="StartQuizServlet" method="post">
+    <h2>Select a Quiz Category</h2>
+
+    <label for="category">Choose a category:</label>
+    <select name="category_id" id="category" required>
+      <option value="" disabled selected>Select a category</option>
+      <option value="1">Science</option>
+      <option value="2">Aptitude</option>
+      <option value="3">Mathematics</option>
+      <option value="4">Biology</option>
+    </select>
+
+    <input type="submit" value="Start Quiz">
+  </form>
+</body>
+</html>

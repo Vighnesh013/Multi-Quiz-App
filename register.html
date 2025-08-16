@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Register Page</title>
+  <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+  <form action="userRegister" method="post">
+    <h2>Create Your Account</h2>
+
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username" required>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" required>
+
+    <input type="submit" value="Register">
+
+    <p class="form-footer">
+      Already have an account?
+      <a href="UserLogin.html">Login here</a>
+    </p>
+  </form>
+</body>
+</html>

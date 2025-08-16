@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="ISO-8859-1">
+  <title>User Login</title>
+  <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+
+  <form action="UserLoginServlet" method="post">
+    <h2>User Login</h2>
+
+    <label for="username">Enter Username:</label>
+    <input type="text" name="username" id="username" required>
+
+    <label for="email">Enter Email:</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="password">Enter Password:</label>
+    <input type="password" name="password" id="password" required>
+
+    <input type="submit" value="Login">
+
+    <label>Don't have an account?</label>
+    <a href="register.html">Register here</a>
+  </form>
+
+</body>
+</html>
